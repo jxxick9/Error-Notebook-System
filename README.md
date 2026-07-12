@@ -1,29 +1,44 @@
-# Error-Notebook-System
-A student error-tracking notebook system built with Modern C++. Features strict Object-Oriented encapsulation, memory management via Smart Pointers, and individual data persistence for each student profile.
+# Error Notebook System
 
-## Key Features
+A robust, localized Error Notebook System designed for students to track, analyze, and review their academic mistakes. Built with modern C++ Object-Oriented Programming (OOP) principles, this application features multi-user authentication, localized file persistence, and advanced data filtering.
 
-1. **User Authentication & Management**: Supports secure multi-student registration, login, and logout functionalities. 
-2. **Comprehensive Error Item Tracking**: Allows students to add and delete recorded mistakes. Each entry contains descriptions, custom failure analysis, difficulty ratings (`EASY`, `MEDIUM`, `HARD`), error classifications (`CONCEPT`, `CALCULATION`, `CARELESS`), and subject routing (`MATH`, `PHYSICS`, `CHEMISTRY`).
-3. **Advanced Querying & Metrics**: Enables real-time sorting by timestamps (newest/oldest first) and conditional data filtering via strong-typed enumerations.
-4. **Isolated Data Persistence**: 
-   - Global user registries are maintained inside `global_users.txt`.
-   - Each individual's notebook is encapsulated and saved in a designated text format: `notebook_<username>.txt`.
+## 🛠️ AI-Assisted Architecture & Independent Development Statement
 
+This project was developed using a modern **AI-assisted engineering workflow**. The boilerplate object architecture and system skeleton were generated via AI prompting, while all **system debugging, toolchain environment troubleshooting, and core logical corrections were executed independently by the developer**.
 
-## Project Structure
+During the integration phase, the developer identified and resolved two critical, game-breaking bottlenecks:
+1. **Windows Toolchain & Path Resolution Fix**: Diagnosed and resolved a deep-seated CMake configuration failure caused by Windows directory path spaces (`YJ Chen`), fixing cache gridlocks by decoupling the build space from the user folder.
+2. **State Persistence Logic Rectification**: Discovered a critical logic bug in `SystemManager::saveGlobalUsers()` where a boolean validation method was mistakenly utilized for file writes, causing passwords to be saved as `0`. Rectified the issue by engineering proper encapsulation getters in the `User` class.
 
-- `User.h` / `User.cpp`: Manages profile instantiation and encapsulates credential matching.
-- `ErrorItem.h` / `ErrorItem.cpp`: Defines target error objects utilizing `enum class` schemas and timestamp tagging.
-- `SystemManager.h` / `SystemManager.cpp`: Act as the core system orchestrator handling user business logic, collections, and backend I/O operations.
-- `main.cpp`: Presents an interactive, English-based Command-Line App dashboard.
+---
 
+## Core Architecture & Technical Highlights
 
-## Building and Running
+*   **Modern C++ Memory Management**: Utilizes `std::shared_ptr` smart pointers extensively to manage `User` and `ErrorItem` lifecycles, completely mitigating potential Memory Leaks.
+*   **Strongly-Typed Enumerations**: Employs `enum class` scopes for problem difficulties, error types, and subjects to prevent global namespace pollution and maintain strict type safety.
+*   **Decoupled File Persistence**: Implements a dedicated file IO pipeline where each user's data is isolated into an individual `notebook_[username].txt` matrix, showcasing micro-data management principles.
+
+---
+
+## Project Blueprint
+
+| File Name | Functional Description |
+| :--- | :--- |
+| `main.cpp` | System entry point, managing interactive console loop UI logic. |
+| `SystemManager.h / .cpp` | User authentication core, notebook business logic, and file IO streams. |
+| `User.h / .cpp` | Student account object encapsulation (username, password hash, real name). |
+| `ErrorItem.h / .cpp` | Error entry structure containing type enums and Unix timestamp trackers. |
+| `CMakeLists.txt` | Central CMake compilation configuration script. |
+
+---
+
+## Compilation & Execution Guide
+
+To bypass command-line path parsing issues on Windows, it is highly recommended to place the repository in a space-free directory (e.g., `C:\ErrorNotebookSystem`):
 
 ```bash
 mkdir build
 cd build
 cmake .. -G "MinGW Makefiles"
 mingw32-make
-./error_notebook
+.\error_notebook.exe
