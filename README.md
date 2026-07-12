@@ -10,12 +10,14 @@ A student error-tracking notebook system built with Modern C++. Features strict 
    - Global user registries are maintained inside `global_users.txt`.
    - Each individual's notebook is encapsulated and saved in a designated text format: `notebook_<username>.txt`.
 
+
 ## Project Structure
 
 - `User.h` / `User.cpp`: Manages profile instantiation and encapsulates credential matching.
 - `ErrorItem.h` / `ErrorItem.cpp`: Defines target error objects utilizing `enum class` schemas and timestamp tagging.
 - `SystemManager.h` / `SystemManager.cpp`: Act as the core system orchestrator handling user business logic, collections, and backend I/O operations.
 - `main.cpp`: Presents an interactive, English-based Command-Line App dashboard.
+
 
 ## Building and Running
 
