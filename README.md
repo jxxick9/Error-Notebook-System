@@ -22,7 +22,6 @@ A student error-tracking notebook system built with Modern C++. Features strict 
 ## Building and Running
 
 ```bash
-mkdir build
 cd build
 cmake .. -G "MinGW Makefiles"
 mingw32-make
