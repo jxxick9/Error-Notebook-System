@@ -200,7 +200,7 @@ int main() {
             string uname, pwd;
             cout << "\n--- USER LOGIN ---\n";
             cout << "Username: ";
-            cin >> uname;
+            getline(cin, uname);
             cout << "Password: ";
             cin >> pwd;
 
@@ -214,7 +214,7 @@ int main() {
             string uname, pwd, name;
             cout << "\n--- CREATE ACCOUNT ---\n";
             cout << "Choose a Username: ";
-            cin >> uname;
+            getline(cin, uname);
             cout << "Choose a Password: ";
             cin >> pwd;
             cin.ignore(); // clear newline before getline
