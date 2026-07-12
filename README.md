@@ -2,7 +2,7 @@
 
 A robust, localized Error Notebook System designed for students to track, analyze, and review their academic mistakes. Built with modern C++ Object-Oriented Programming (OOP) principles, this application features multi-user authentication, localized file persistence, and advanced data filtering.
 
-## 🛠️ AI-Assisted Architecture & Independent Development Statement
+## AI-Assisted Architecture & Independent Development Statement
 
 This project was developed using a modern **AI-assisted engineering workflow**. The boilerplate object architecture and system skeleton were generated via AI prompting, while all **system debugging, toolchain environment troubleshooting, and core logical corrections were executed independently by the developer**.
 
