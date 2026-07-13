@@ -6,7 +6,7 @@
 * 解耦的檔案持久化：實作了專用的檔案 IO 管線，將每位使用者的資料獨立隔離到各自的 `notebook_[username].txt` 矩陣中，展現了微型數據管理的原則。
 
 
-## AI 輔助架構與獨立開發聲明
+## 開發聲明
 
 本專案採用 AI 輔助進行開發。基礎的物件架構與系統骨架是由 AI 提示詞生成，而所有的系統除錯（Debugging）、工具鏈環境排障，以及核心邏輯修正，皆由開發者獨立執行完成。
 
@@ -43,7 +43,7 @@ outfile << u->getUsername() << " " << u->authenticate(u->getUsername()) << "\n";
 | `ErrorItem.h / .cpp` | 錯題項目的結構，包含類型列舉與 Unix 時間戳記追蹤器。 |
 | `CMakeLists.txt` | 中央 CMake 編譯組態指令碼。 |
 
-## 編譯與執行指南
+## 編譯與執行
 
 為了避免 Windows 系統上的命令列路徑解析問題，建議將此專案儲存於不含空格的目錄中（例如：`C:\ErrorNotebookSystem`）：
 
