@@ -12,14 +12,7 @@
 本專案採用 AI 輔助進行開發。基礎的物件架構與系統骨架是由 AI 提示詞生成，而所有的系統除錯（Debugging）、工具鏈環境排障，以及核心邏輯修正，皆由開發者獨立執行完成。
 
 
-## 偵錯過程
-### Phase 1: Structural Prototyping
-
-* 目標： 建立清晰的物件導向（OOP）架構，用以處理使用者與錯誤項目。
-* AI 協作： 引導 AI 生成 `User`、`ErrorItem` 及 `SystemManager` 的類別結構，並引入智慧指標（`std::shared_ptr`）與時間戳記工具（`std::chrono`），生成標準的標頭檔定義與程式碼骨架。
-
-### Phase 2: Runtime Logic Debugging
-
+## 實作偵錯紀錄
 * 遇到問題： 新註冊的帳號可以成功登出，但在同一個工作階段或新的工作階段中嘗試重新登入時，會跳出 `[!] Login failed`。
 * 根本原因分析： 檢查 `SystemManager.cpp` 後，發現 `saveGlobalUsers()` 中存在邏輯缺陷：
 ```cpp
